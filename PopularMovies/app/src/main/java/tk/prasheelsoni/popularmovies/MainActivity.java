@@ -90,7 +90,7 @@ try {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch(item.getItemId())
         {
-            
+
             case R.id.sort_rating :
 
                 Collections.sort(movie, new Comparator<JSONObject>() {
@@ -129,7 +129,7 @@ try {
                         return valB.compareTo(valA);
                     }
                 });
-                Log.v("array",movie.toString());
+
 
 
                 new LoadData(this).execute();
@@ -155,7 +155,7 @@ try {
             if (movie.isEmpty()) {
             try {
 
-                    url = new URL("https://api.themoviedb.org/3/discover/movie?api_key=ad33c5397c73759421f9237c01d1d2b9");
+                    url = new URL("https://api.themoviedb.org/3/discover/movie?api_key=API_KEY");
                     link = (HttpURLConnection) url.openConnection();
                     link.connect();
                     String data = ConvertToString(link);
@@ -165,7 +165,7 @@ try {
                         JSONObject movie_array = results.getJSONObject(i);
                         movie.add(movie_array);
                     }
-                    Log.d("HashMap", movie.toString());
+
                 }catch(IOException e){
                     e.printStackTrace();
                 }catch(JSONException e){
@@ -264,7 +264,7 @@ try {
         public View getView(int i, View view, ViewGroup viewGroup) {
             ImageView imageView;
             if (view == null) {
-                // if it's not recycled, initialize some attributes
+                
                 imageView = new ImageView(mContext);
                 imageView.setLayoutParams(new GridView.LayoutParams((int) mContext.getResources().getDimension(R.dimen.width), (int) mContext.getResources().getDimension(R.dimen.height)));
                 imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
